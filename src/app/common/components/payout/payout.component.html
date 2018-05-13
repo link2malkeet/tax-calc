@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-toolbar>
+    <h2>Pay Return</h2>
+    <span fxFlex></span>
+    <i class="material-icons">
+      attach_money
+    </i>
+
+  </mat-toolbar>
+  <mat-card-content class="payout-container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px">
+    <div fxLayout="column" fxFlex="40%">
+      <mat-form-field>
+        <span matPrefix>$ &nbsp;</span>
+        <input id="taxableIncome" matInput placeholder="Taxable Income" disabled [value]="(taxResultObservable$ | async).taxableIncome | number">
+      </mat-form-field>
+      <mat-form-field>
+        <span matPrefix>$ &nbsp;</span>
+        <input matInput id="taxVal" placeholder="Total tax" disabled [value]="(taxResultObservable$ | async).totaltax | number">
+      </mat-form-field>
+      <mat-form-field>
+        <span matPrefix>$ &nbsp;</span>
+        <input matInput id="netIncomeVal" placeholder="Net Income" disabled [value]="(taxResultObservable$ | async).pay | number">
+      </mat-form-field>
+    </div>
+    <div fxLayout="column" fxFlex="40%">
+      <mat-form-field>
+        <span matPrefix>$ &nbsp;</span>
+        <input id="incomePlusSuperVal" matInput placeholder="Net Income + Super" disabled [value]="((taxResultObservable$ | async).pay + (taxResultObservable$ | async).superAnnuation)| number">
+      </mat-form-field>
+      <mat-form-field>
+        <span matPrefix>$ &nbsp;</span>
+        <input id="superVal" matInput placeholder="SuperAnnuation" disabled [value]="(taxResultObservable$ | async).superAnnuation | number">
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+</mat-card>

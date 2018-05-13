@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-toolbar>
+    <h2>Income</h2>
+    <span fxFlex></span>
+    <i class="material-icons">
+      attach_money
+    </i>
+  </mat-toolbar>
+  <mat-card-content>
+    <form class="income-container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap [formGroup]="incomeGroup">
+      <div fxLayout="column" fxFlex="40%">
+        <mat-form-field>
+          <span matPrefix>$ &nbsp;</span>
+          <input matInput id="grossAmt" type="number" placeholder="Gross Amount" formControlName="grossAmt">
+        </mat-form-field>
+        <mat-error *ngIf="grossAmt.errors && (grossAmt.dirty || grossAmt.touched)">
+          Enter number greater than 0.
+        </mat-error>
+      </div>
+
+      <div fxLayout="column" fxFlex="40%">
+        <mat-form-field>
+          <input matInput id="superPercentage" type="number" placeholder="Superannuation Percentage" formControlName="superPercentage">
+
+          <mat-hint align="start">
+            <strong>Value is in Percentage (%)</strong>
+          </mat-hint>
+
+        </mat-form-field>
+        <mat-error *ngIf="superPercentage.errors && superPercentage.errors.RANGE_ERROR && (superPercentage.dirty || superPercentage.touched)">
+          Percentage should be in between 9.5 to 100.
+        </mat-error>
+        <mat-error *ngIf="superPercentage.errors && superPercentage.errors.NO_NEGATIVE && (superPercentage.dirty || superPercentage.touched)">
+          Enter number greater than 0.
+        </mat-error>
+        <mat-checkbox id="isSuperInclude" style="margin-top:10px" matInput formControlName="isSuperInclude" color="primary">Superannuation</mat-checkbox>
+      </div>
+      <div fxFlex></div>
+    </form>
+    <!-- <pre>{{incomeGroup.value | json}}</pre>
+    <pre>{{incomeGroup.valid | json}}</pre> -->
+  </mat-card-content>
+</mat-card>

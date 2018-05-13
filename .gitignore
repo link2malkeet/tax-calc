@@ -9,6 +9,9 @@
 # dependencies
 /node_modules
 
+# code coverage
+/coverage
+
 # IDEs and editors
 /.idea
 .project

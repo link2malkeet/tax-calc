@@ -1,0 +1,18 @@
+.container {
+    background-color: #c2b8d4;
+    border-radius: .3rem;
+    width: 80%;
+    display: block;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.incomeContainer, .payoutContainer {
+    width:80%;
+    margin:auto;
+}
+
+
+
+
